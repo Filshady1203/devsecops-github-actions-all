@@ -45,7 +45,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.sha }}
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.15.0
         with:
