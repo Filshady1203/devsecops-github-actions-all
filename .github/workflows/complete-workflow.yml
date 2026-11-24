@@ -1,5 +1,5 @@
 name: Build code, run unit test, run SAST, SCA, DAST security scans
-on: push
+on: [push]
 
 jobs:
   build:
@@ -14,7 +14,7 @@ jobs:
         distribution: 'zulu'
         cache: maven
     - name: Run Sonar Analysis with cloud
-      run:  mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=reachableplaygroundjava -Dsonar.organization=reachableplaygroundjava -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+      run:  mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:5.5.0:sonar -Dsonar.projectKey=reachableplaygroundjava -Dsonar.organization=reachableplaygroundjava -Dsonar.host.url=https://sonarcloud.io
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
