@@ -54,4 +54,5 @@ jobs:
           target: 'http://example.com/'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
-          issue_title: 'ZAP baseline report'
+          allow_issue_writing: false
+          artifact_name: 'ZAP baseline report'
